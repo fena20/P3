@@ -1,0 +1,21 @@
+# Physics-Informed Deep Reinforcement Learning for Residential Building Control
+# Applied Energy (Q1 Journal) - Dependencies
+
+# Core ML/RL Libraries
+gymnasium>=0.29.0
+stable-baselines3>=2.0.0
+torch>=2.0.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization (Publication Quality)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Explainability
+shap>=0.42.0
+
+# Utilities
+scipy>=1.10.0
