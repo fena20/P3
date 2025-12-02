@@ -1,0 +1,24 @@
+Section,Parameter,Symbol,Value,Description
+Building Physics,Thermal Resistance ($R$),$R$,0.050 K/kW,Thermal resistance of building envelope
+Building Physics,Thermal Capacitance ($C$),$C$,0.50 kWh/K,Thermal capacitance of building
+Building Physics,"HVAC Maximum Power ($Q_{HVAC,max}$)","$Q_{HVAC,max}$",3.0 kW,Maximum heating/cooling power
+Building Physics,Time Step ($\Delta t$),$\Delta t$,0.0167 hours (1 min),Simulation time step (AMPds2 resolution)
+Building Physics,Comfort Setpoint ($T_{setpoint}$),$T_{setpoint}$,22.0 °C,Target indoor temperature
+Building Physics,Comfort Tolerance ($\Delta T_{tolerance}$),$\Delta T_{tolerance}$,1.5 °C,Acceptable temperature deviation
+Building Physics,"Minimum Cycle Time ($t_{cycle,min}$)","$t_{cycle,min}$",15 minutes,Minimum time between state changes (prevents short-cycling)
+Building Physics,"Initial Indoor Temperature ($T_{in,0}$)","$T_{in,0}$",20.0 °C,Starting indoor temperature
+PPO Algorithm,Learning Rate ($\alpha$),$\alpha$,3.00e-04,Adam optimizer learning rate
+PPO Algorithm,Discount Factor ($\gamma$),$\gamma$,0.990,Future reward discount factor
+PPO Algorithm,GAE Lambda ($\lambda$),$\lambda$,0.950,Generalized Advantage Estimation parameter
+PPO Algorithm,PPO Clip Range ($\epsilon$),$\epsilon$,0.20,PPO clipping parameter
+PPO Algorithm,Steps per Update ($n_{steps}$),$n_{steps}$,2048,Number of environment steps per policy update
+PPO Algorithm,Batch Size ($B$),$B$,64,Mini-batch size for gradient updates
+PPO Algorithm,Epochs per Update ($n_{epochs}$),$n_{epochs}$,10,Number of optimization epochs per update
+PPO Algorithm,Entropy Coefficient ($c_{ent}$),$c_{ent}$,0.0100,Entropy bonus for exploration
+PPO Algorithm,Value Function Coefficient ($c_{vf}$),$c_{vf}$,0.500,Value function loss weight
+PPO Algorithm,Policy Network Architecture,-,"MLP [64, 64]",Multi-layer perceptron with 2 hidden layers
+PPO Algorithm,Value Network Architecture,-,"MLP [64, 64]",Value network architecture (shared with policy)
+Reward Function,Cost Weight ($w_1$),$w_1$,1.0,Weight for energy cost component
+Reward Function,Discomfort Weight ($w_2$),$w_2$,10.0,Weight for thermal discomfort penalty
+Reward Function,Cycling Penalty Weight ($w_3$),$w_3$,5.0,Weight for short-cycling prevention penalty
+Reward Function,Reward Function,$R$,$R = -(w_1 \cdot Cost + w_2 \cdot Discomfort + w_3 \cdot Cycling)$,Multi-objective reward formulation

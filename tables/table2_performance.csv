@@ -1,0 +1,6 @@
+Metric,Unit,Baseline,PI-DRL,Improvement,Absolute Change
+Total Energy Cost,USD ($),$10.41,$10.41,0.0%,$0.00
+Thermal Discomfort,Degree-Hours,31014.46,30945.14,0.2%,69.32
+Equipment Switching Cycles,Count,1,1,0.0%,0
+Peak Load,kW,2.32,1.71,26.3%,0.61
+Carbon Emissions,kg CO$_2$,5.20,4.16,20.0%,1.04

@@ -1,0 +1,12 @@
+Metric,Unit,"Baseline
+(Thermostat)","DRL
+(No Cycling Penalty)","PI-DRL
+(With Cycling Penalty)","DRL vs Baseline
+(% Change)","PI-DRL vs Baseline
+(% Change)"
+Total Energy Cost,USD ($),$10.41,$10.42,$10.41,+0.1%,-0.0%
+Thermal Discomfort,Degree-Hours,31014.46,31118.14,30945.14,+0.3%,-0.2%
+Equipment Switching Cycles,Count,1,1,1,+0.0%,+0.0%
+Average Cycle Duration,minutes,0.0,0.0,0.0,+nan%,+nan%
+Short-Cycling Violations,Count,1,1,1,+0%,+0%
+Peak Load,kW,2.32,1.94,1.71,-16.4%,-26.3%
