@@ -1,0 +1,88 @@
+================================================================================
+SENSITIVITY ANALYSIS SUMMARY REPORT
+================================================================================
+
+
+R Sensitivity:
+--------------------------------------------------------------------------------
+Base value: 0.05
+Base metrics:
+  Cost: $10.43
+  Discomfort: 31098.73
+  Cycles: 1
+
+Variation Analysis:
+  cost: Range=[10.43, 10.49], Variation=0.5%
+  discomfort: Range=[30684.22, 31449.64], Variation=2.5%
+  cycles: Range=[1.00, 1.00], Variation=0.0%
+
+
+C Sensitivity:
+--------------------------------------------------------------------------------
+Base value: 0.5
+Base metrics:
+  Cost: $10.48
+  Discomfort: 31083.71
+  Cycles: 1
+
+Variation Analysis:
+  cost: Range=[10.42, 10.49], Variation=0.7%
+  discomfort: Range=[30156.37, 31279.09], Variation=3.6%
+  cycles: Range=[1.00, 1.00], Variation=0.0%
+
+
+W1 Sensitivity:
+--------------------------------------------------------------------------------
+Base value: 1.0
+Base metrics:
+  Cost: $10.46
+  Discomfort: 31172.81
+  Cycles: 1
+
+Variation Analysis:
+  cost: Range=[10.45, 10.48], Variation=0.2%
+  discomfort: Range=[30985.80, 31254.31], Variation=0.9%
+  cycles: Range=[1.00, 1.00], Variation=0.0%
+
+
+W2 Sensitivity:
+--------------------------------------------------------------------------------
+Base value: 10.0
+Base metrics:
+  Cost: $10.43
+  Discomfort: 31221.72
+  Cycles: 1
+
+Variation Analysis:
+  cost: Range=[10.43, 10.48], Variation=0.5%
+  discomfort: Range=[31134.00, 31221.72], Variation=0.3%
+  cycles: Range=[1.00, 1.00], Variation=0.0%
+
+
+W3 Sensitivity:
+--------------------------------------------------------------------------------
+Base value: 5.0
+Base metrics:
+  Cost: $10.43
+  Discomfort: 31292.63
+  Cycles: 1
+
+Variation Analysis:
+  cost: Range=[10.42, 10.50], Variation=0.8%
+  discomfort: Range=[30964.83, 31292.63], Variation=1.0%
+  cycles: Range=[1.00, 1.00], Variation=0.0%
+
+
+CYCLE_TIME Sensitivity:
+--------------------------------------------------------------------------------
+Base value: 20
+Base metrics:
+  Cost: $10.48
+  Discomfort: 31082.24
+  Cycles: 1
+
+Variation Analysis:
+  cost: Range=[10.42, 10.49], Variation=0.6%
+  discomfort: Range=[30950.85, 31258.06], Variation=1.0%
+  cycles: Range=[1.00, 1.00], Variation=0.0%
+

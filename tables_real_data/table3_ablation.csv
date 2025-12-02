@@ -4,9 +4,9 @@ Metric,Unit,"Baseline
 (With Cycling Penalty)","DRL vs Baseline
 (% Change)","PI-DRL vs Baseline
 (% Change)"
-Total Energy Cost,USD ($),$10.46,$10.46,$10.43,-0.1%,-0.3%
-Thermal Discomfort,Degree-Hours,31019.48,31323.00,31170.27,+1.0%,+0.5%
+Total Energy Cost,USD ($),$26.36,$26.36,$26.35,+0.0%,-0.0%
+Thermal Discomfort,Degree-Hours,76106.74,75954.81,76152.35,-0.2%,+0.1%
 Equipment Switching Cycles,Count,1,1,1,+0.0%,+0.0%
 Average Cycle Duration,minutes,0.0,0.0,0.0,+nan%,+nan%
 Short-Cycling Violations,Count,1,1,1,+0%,+0%
-Peak Load,kW,2.24,2.00,1.94,-11.0%,-13.7%
+Peak Load,kW,2.45,1.85,1.88,-24.6%,-23.2%
