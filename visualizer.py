@@ -134,7 +134,9 @@ class ResultVisualizer:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format='pdf')
+            # Detect format from extension
+            fmt = 'pdf' if save_path.endswith('.pdf') else 'png'
+            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format=fmt)
             print(f"Figure 1 saved to {save_path}")
         else:
             plt.show()
@@ -232,7 +234,9 @@ class ResultVisualizer:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format='pdf')
+            # Detect format from extension
+            fmt = 'pdf' if save_path.endswith('.pdf') else 'png'
+            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format=fmt)
             print(f"Figure 2 saved to {save_path}")
         else:
             plt.show()
@@ -323,7 +327,9 @@ class ResultVisualizer:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format='pdf')
+            # Detect format from extension
+            fmt = 'pdf' if save_path.endswith('.pdf') else 'png'
+            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format=fmt)
             print(f"Figure 3 saved to {save_path}")
         else:
             plt.show()
@@ -396,7 +402,9 @@ class ResultVisualizer:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format='pdf')
+            # Detect format from extension
+            fmt = 'pdf' if save_path.endswith('.pdf') else 'png'
+            plt.savefig(save_path, dpi=self.dpi, bbox_inches='tight', format=fmt)
             print(f"Figure 4 saved to {save_path}")
         else:
             plt.show()
