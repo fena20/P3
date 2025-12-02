@@ -1,0 +1,22 @@
+
+\begin{table}[ht]
+\centering
+\caption{Quantitative Performance Comparison: Baseline vs. Proposed PI-DRL}
+\label{tab:performance}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{Daily Cost (\$)} & \textbf{Discomfort (°C·h)} & \textbf{Switches/day} & \textbf{Peak Load (kW)} \\
+\midrule
+Rule-Based Thermostat (Baseline) & $1.7542 & 5.23 & 95 & 3.50 \\
+\textbf{{Proposed PI-DRL}} & \textbf{\$1.3521} & \textbf{2.81} & \textbf{38} & \textbf{2.90} \\
+\midrule
+\textbf{Improvement} & \textbf{22.9\%} & \textbf{46.3\%} & \textbf{60.0\%} \textit{(key)} & 17.1\% \\
+\midrule
+\textbf{Annual Savings} & \textbf{\$146.77/year} & — & \textbf{20,805} cycles/year & — \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: All metrics are averaged over 30 episodes with different random seeds. The equipment cycling reduction (key contribution) translates to an estimated 40-60\% extension in compressor lifespan, avoiding \$1,500-3,000 in replacement costs over 10 years.
+\end{tablenotes}
+\end{table}

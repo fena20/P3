@@ -1,0 +1,28 @@
+| Parameter                                                  | Value         | Unit           |
+|:-----------------------------------------------------------|:--------------|:---------------|
+| \textbf{Building Thermal Model}                            |               |                |
+| Thermal Resistance ($R$)                                   | 2.5           | °C/kW          |
+| Thermal Capacitance ($C$)                                  | 10.0          | kWh/°C         |
+| Time Step ($\Delta t$)                                     | 1             | min            |
+| HVAC Rated Power                                           | 3.5           | kW             |
+| HVAC COP                                                   | 3.0           | —              |
+| Solar Gain Factor                                          | 0.0020        | kW/(W/m²)      |
+|                                                            |               |                |
+| \textbf{Comfort \& Control Constraints}                    |               |                |
+| Comfort Temperature Range                                  | 20–24         | °C             |
+| \textbf{Minimum Cycle Time} (\textit{key parameter})       | \textbf{15}   | \textbf{{min}} |
+|                                                            |               |                |
+| \textbf{Reward Function Weights}                           |               |                |
+| Energy Cost Weight ($w_1$)                                 | 1.0           | —              |
+| Discomfort Weight ($w_2$)                                  | 5.0           | —              |
+| \textbf{Cycling Penalty Weight} ($w_3$) \textit{(novelty)} | \textbf{10.0} | \textbf{{—}}   |
+|                                                            |               |                |
+| \textbf{PPO Algorithm Hyperparameters}                     |               |                |
+| Learning Rate ($\alpha$)                                   | 3.0e-04       | —              |
+| Discount Factor ($\gamma$)                                 | 0.990         | —              |
+| GAE Lambda ($\lambda$)                                     | 0.95          | —              |
+| Clip Range ($\epsilon$)                                    | 0.2           | —              |
+| Entropy Coefficient                                        | 0.01          | —              |
+| Steps per Update                                           | 2,048         | —              |
+| Batch Size                                                 | 64            | —              |
+| Training Timesteps                                         | 100,000       | —              |
