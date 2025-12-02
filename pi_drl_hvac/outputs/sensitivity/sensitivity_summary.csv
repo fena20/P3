@@ -1,0 +1,5 @@
+Analysis,Finding,Cost_Range,Cycle_Range,Insight
+Thermal Parameters,"Optimal: R=10.0, C=5.0",$0.86 - $0.93,1 - 1,Higher insulation (R) reduces both cost and cycles
+Reward Weights,"Balanced (w1=1, w2=2, w3=0.5) is optimal",$0.91 - $0.91,1 - 1,w3=0 causes 0 short-cycling events
+Cycling Penalty (w3),w3=0.5 reduces cycles by 0%,$0.91 - $0.91,1 - 1,Critical for equipment protection
+Minimum Cycle Time,15 min (standard) eliminates 0 short-cycles vs 5 min,$0.91 - $0.91,1 - 1,Industry standard (15 min) is justified

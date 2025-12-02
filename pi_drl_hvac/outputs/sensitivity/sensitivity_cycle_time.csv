@@ -1,0 +1,6 @@
+min_cycle_time,protection_level,total_cost,avg_discomfort,total_cycles,short_cycling_events,peak_power_kw,cycles_per_hour
+5,Aggressive,0.9074672513619414,10.109682,1.0,0.0,3.0,0.125
+10,Moderate,0.9074672513619414,10.109682,1.0,0.0,3.0,0.125
+15,Standard,0.9074672513619414,10.109682,1.0,0.0,3.0,0.125
+20,Conservative,0.9074672513619414,10.109682,1.0,0.0,3.0,0.125
+30,Very Conservative,0.9074672513619414,10.109682,1.0,0.0,3.0,0.125

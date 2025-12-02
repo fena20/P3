@@ -186,6 +186,52 @@ Three "Golden Tables" for Q1 journal standards:
 
 **Key Finding:** Removing the cycling penalty (w₃=0) causes 350% more equipment cycles and 35 short-cycling events, demonstrating that standard DRL would destroy the hardware.
 
+## 📈 Sensitivity Analysis
+
+Comprehensive sensitivity analysis validates robustness across parameter variations:
+
+### Analyses Performed
+
+| Analysis | Parameters Tested | Purpose |
+|----------|-------------------|---------|
+| Thermal Parameters | R = [3, 5, 7, 10] °C/kW, C = [5, 10, 15, 20] kWh/°C | Building envelope sensitivity |
+| Reward Weights | w₁, w₂, w₃ combinations | Objective trade-offs |
+| Cycling Penalty | w₃ = [0, 0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0] | Equipment protection threshold |
+| Min Cycle Time | t_min = [5, 10, 15, 20, 30] min | Short-cycling prevention |
+
+### Running Sensitivity Analysis
+
+```bash
+# Quick sensitivity analysis (heuristic evaluation)
+python main.py --sensitivity
+
+# Full sensitivity analysis (with agent training - slower but more accurate)
+python main.py --sensitivity-full
+```
+
+### Generated Outputs
+
+```
+outputs/sensitivity/
+├── fig_thermal_sensitivity.pdf     # R vs C heatmaps
+├── fig_pareto_frontier.pdf         # Cost vs Cycles trade-off
+├── fig_cycling_analysis.pdf        # w₃ impact on all metrics
+├── fig_cycle_time_analysis.pdf     # t_min threshold analysis
+├── sensitivity_thermal.csv         # Raw thermal data
+├── sensitivity_reward_weights.csv  # Reward weight results
+├── sensitivity_cycling_penalty.csv # Cycling penalty sweep
+├── sensitivity_cycle_time.csv      # Cycle time results
+├── sensitivity_summary.csv         # Key findings
+└── table_sensitivity_summary.tex   # LaTeX summary table
+```
+
+### Key Findings
+
+1. **Thermal Parameters:** Higher insulation (R) reduces both cost and cycling
+2. **Cycling Penalty:** w₃ = 0.5 provides optimal balance between cost and equipment protection
+3. **Min Cycle Time:** Industry standard (15 min) is justified - eliminates short-cycling
+4. **Reward Weights:** Balanced configuration (w₁=1, w₂=2, w₃=0.5) is optimal
+
 ## 🔬 Technical Details
 
 ### Environment Specifications

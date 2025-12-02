@@ -43,6 +43,7 @@ from src.environment import SmartHomeEnv, BaselineThemostatEnv
 from src.agent import PI_DRL_Agent, create_and_train_agent
 from src.visualizer import ResultVisualizer
 from src.tables import TableGenerator, generate_demo_tables, PerformanceMetrics
+from src.sensitivity_analysis import SensitivityAnalyzer, run_quick_sensitivity_analysis
 
 
 def print_header():
@@ -306,6 +307,39 @@ def run_tables_mode(save_dir: str = "outputs"):
     return tables_dir
 
 
+def run_sensitivity_analysis(save_dir: str = "outputs", quick: bool = True):
+    """
+    Run comprehensive sensitivity analysis.
+    
+    Analyzes:
+    1. Thermal parameters (R, C)
+    2. Reward function weights (w1, w2, w3)
+    3. Cycling penalty sensitivity
+    4. Minimum cycle time threshold
+    
+    Args:
+        save_dir: Directory for outputs
+        quick: If True, use faster settings
+    """
+    print("\n" + "-" * 50)
+    print("SENSITIVITY ANALYSIS MODE")
+    print("-" * 50)
+    
+    sensitivity_dir = Path(save_dir) / "sensitivity"
+    sensitivity_dir.mkdir(parents=True, exist_ok=True)
+    
+    analyzer = SensitivityAnalyzer(
+        save_dir=str(sensitivity_dir),
+        n_eval_episodes=2 if quick else 5,
+        training_timesteps=5000 if quick else 20000,
+        quick_mode=quick
+    )
+    
+    results = analyzer.run_full_analysis()
+    
+    return results
+
+
 def run_full_pipeline(
     total_timesteps: int = 50000,
     save_dir: str = "outputs",
@@ -450,6 +484,7 @@ Examples:
   python main.py --train-only        # Training only
   python main.py --viz-only          # Visualization only
   python main.py --tables-only       # Generate tables only
+  python main.py --sensitivity       # Run sensitivity analysis
   python main.py --explain-cycling   # Explain cycling penalty
   python main.py --timesteps 100000  # Custom training length
         """
@@ -470,6 +505,14 @@ Examples:
     parser.add_argument(
         '--tables-only', action='store_true',
         help='Generate publication tables only'
+    )
+    parser.add_argument(
+        '--sensitivity', action='store_true',
+        help='Run comprehensive sensitivity analysis'
+    )
+    parser.add_argument(
+        '--sensitivity-full', action='store_true',
+        help='Run full (slow) sensitivity analysis with training'
     )
     parser.add_argument(
         '--explain-cycling', action='store_true',
@@ -509,6 +552,10 @@ Examples:
         run_visualization_mode(save_dir=args.save_dir)
     elif args.tables_only:
         run_tables_mode(save_dir=args.save_dir)
+    elif args.sensitivity:
+        run_sensitivity_analysis(save_dir=args.save_dir, quick=True)
+    elif args.sensitivity_full:
+        run_sensitivity_analysis(save_dir=args.save_dir, quick=False)
     else:
         # Full pipeline
         run_full_pipeline(
