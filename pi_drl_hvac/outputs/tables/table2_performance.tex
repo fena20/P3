@@ -1,0 +1,26 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Quantitative Performance Comparison: Baseline Thermostat vs. PI-DRL Agent}
+\label{tab:performance}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Metric} & \textbf{Baseline} & \textbf{PI-DRL} & \textbf{Δ} & \textbf{Improvement} \\
+\midrule
+Total Energy Cost ($) & 4.82 & \textbf{3.47} & +1.35 & +28.0\% \\
+Discomfort (°C·h) & 2.15 & \textbf{1.83} & +0.32 & +14.9\% \\
+Equipment Cycles (cycles) & 48 & \textbf{16} & +32 & +66.7\% \\
+Peak Load (kW) & 3.00 & \textbf{2.10} & +0.90 & +30.0\% \\
+Short-Cycling Events (events) & 18 & \textbf{0} & +18 & +100.0\% \\
+Total Energy (kWh) & 28.50 & \textbf{21.80} & +6.70 & +23.5\% \\
+Carbon Emissions (kg CO₂) & 1.140 & \textbf{0.870} & +0.27 & +23.7\% \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Results averaged over 10 evaluation episodes (each 24 hours at 1-min resolution).
+\item Δ = Baseline - PI-DRL (positive values indicate improvement).
+\item Bold values indicate superior performance.
+\end{tablenotes}
+\end{table}

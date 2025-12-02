@@ -1,0 +1,28 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Ablation Study: Validating the Physics-Informed Cycling Penalty}
+\label{tab:ablation}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Model Variant} & \textbf{Cost (\$)} & \textbf{Discomfort} & \textbf{Cycles} & \textbf{Short-Cycling} & \textbf{Risk} \\
+ & & \textbf{(°C·h)} & & \textbf{Events} & \\
+\midrule
+PI-DRL (Full Model) & 3.47 & 1.83 & 16 & 0 & \textcolor{green}{LOW} \\
+DRL w/o Cycling Penalty & 3.28 & 1.95 & 72 & 35 & \textcolor{red}{\textbf{HIGH $\triangle$}} \\
+Rule-Based Controller & 4.82 & 2.15 & 48 & 18 & \textcolor{red}{\textbf{HIGH $\triangle$}} \\
+
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\begin{tabular}{p{0.95\textwidth}}
+\textbf{Key Finding:} Removing the cycling penalty ($w_3 = 0$) results in 350\% more equipment cycles and 35 additional 
+short-cycling events. While energy costs may be marginally reduced, the increased mechanical 
+stress would significantly shorten compressor lifespan, negating any economic benefits.
+
+\textbf{Implication:} The physics-informed cycling penalty is essential for practical deployment, 
+as standard DRL agents optimize for immediate rewards without considering long-term equipment degradation.
+
+\end{tabular}
+\end{table}

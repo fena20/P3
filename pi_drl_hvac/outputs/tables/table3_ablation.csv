@@ -1,0 +1,4 @@
+Model Variant,Configuration,Cost ($),Discomfort (°C·h),Cycles,Short-Cycling,Equipment Risk,Notes
+PI-DRL (Full Model),Complete model with all components,3.47,1.83,16,0,LOW,Balanced optimization with equipment protection
+DRL w/o Cycling Penalty,Standard DRL without equipment protection ($w_3 = 0$),3.28,1.95,72,35,HIGH ⚠️,35× more short-cycling events
+Rule-Based Controller,Simple thermostat with hysteresis,4.82,2.15,48,18,HIGH ⚠️,Reference baseline

@@ -1,0 +1,53 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Simulation Parameters and Hyperparameters for Reproducibility}
+\label{tab:parameters}
+\small
+\begin{tabular}{llcrl}
+\toprule
+\textbf{Category} & \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Unit} \\
+\midrule
+\multicolumn{5}{l}{\textit{Building Physics}} \\
+& Thermal Resistance & $R$ & 5.0 & °C/kW \\
+& Thermal Capacitance & $C$ & 10.0 & kWh/°C \\
+& Heat Pump Power & $P_HP$ & 3.0 & kW \\
+& Coefficient of Performance & $COP$ & 3.5 & - \\
+& Solar Gain Factor & $η_solar$ & 0.010 & kW/(W/m²) \\
+& Time Step & $Δt$ & 1 & min \\
+\midrule
+\multicolumn{5}{l}{\textit{Comfort Zone}} \\
+& Temperature Setpoint & $T_set$ & 21.0 & °C \\
+& Deadband Width & $δT$ & 2.0 & °C \\
+\midrule
+\multicolumn{5}{l}{\textit{Equipment Protection}} \\
+& Minimum Cycle Time & $t_min$ & 15 & min \\
+\midrule
+\multicolumn{5}{l}{\textit{Reward Function}} \\
+& Cost Weight & $w_1$ & 1.0 & - \\
+& Comfort Weight & $w_2$ & 2.0 & - \\
+& Cycling Weight & $w_3$ & 0.5 & - \\
+\midrule
+\multicolumn{5}{l}{\textit{PPO Agent}} \\
+& Learning Rate & $α$ & 3e-04 & - \\
+& Discount Factor & $γ$ & 0.99 & - \\
+& GAE Lambda & $λ$ & 0.95 & - \\
+& Clip Range & $ε$ & 0.2 & - \\
+& Rollout Length & $T$ & 2048 & steps \\
+& Minibatch Size & $B$ & 64 & samples \\
+& Epochs per Update & $K$ & 10 & - \\
+& Entropy Coefficient & $c_ent$ & 0.01 & - \\
+\midrule
+\multicolumn{5}{l}{\textit{Training}} \\
+& Total Timesteps & $N$ & 100,000 & steps \\
+& Random Seed & - & 42 & - \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: Parameters calibrated for a typical single-family residence (150 m²) 
+in a heating-dominated climate. Cycling constraint ($t_{min}$ = 15 min) based on 
+heat pump manufacturer recommendations to prevent compressor damage.
+\end{tablenotes}
+\end{table}

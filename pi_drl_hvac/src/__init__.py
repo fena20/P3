@@ -17,6 +17,7 @@ from .data_loader import AMPds2DataLoader, SyntheticDataGenerator
 from .environment import SmartHomeEnv
 from .agent import PI_DRL_Agent
 from .visualizer import ResultVisualizer
+from .tables import TableGenerator, SimulationParameters, PerformanceMetrics
 
 __version__ = "1.0.0"
 __author__ = "CPES Research Lab"

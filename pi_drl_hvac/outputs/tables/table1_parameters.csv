@@ -1,0 +1,23 @@
+Category,Parameter,Symbol,Value,Unit,Description
+Building Physics,Thermal Resistance,R,5.0,°C/kW,Lumped building envelope resistance
+Building Physics,Thermal Capacitance,C,10.0,kWh/°C,Building thermal mass
+Building Physics,Heat Pump Power,P_HP,3.0,kW,Electrical input power
+Building Physics,Coefficient of Performance,COP,3.5,-,Heat pump efficiency
+Building Physics,Solar Gain Factor,η_solar,0.010,kW/(W/m²),Effective solar aperture
+Building Physics,Time Step,Δt,1,min,Simulation resolution (AMPds2)
+Comfort Zone,Temperature Setpoint,T_set,21.0,°C,Target indoor temperature
+Comfort Zone,Deadband Width,δT,2.0,°C,Acceptable deviation
+Equipment Protection,Minimum Cycle Time,t_min,15,min,Short-cycling threshold
+Reward Function,Cost Weight,w₁,1.0,-,Energy cost coefficient
+Reward Function,Comfort Weight,w₂,2.0,-,Discomfort penalty coefficient
+Reward Function,Cycling Weight,w₃,0.5,-,Short-cycling penalty coefficient
+PPO Agent,Learning Rate,α,3e-04,-,Adam optimizer step size
+PPO Agent,Discount Factor,γ,0.99,-,Future reward discounting
+PPO Agent,GAE Lambda,λ,0.95,-,Advantage estimation
+PPO Agent,Clip Range,ε,0.2,-,Policy update constraint
+PPO Agent,Rollout Length,T,2048,steps,Steps per update
+PPO Agent,Minibatch Size,B,64,samples,SGD batch size
+PPO Agent,Epochs per Update,K,10,-,Optimization epochs
+PPO Agent,Entropy Coefficient,c_ent,0.01,-,Exploration bonus
+Training,Total Timesteps,N,"100,000",steps,Total environment interactions
+Training,Random Seed,-,42,-,For reproducibility

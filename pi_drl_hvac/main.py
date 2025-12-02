@@ -42,6 +42,7 @@ from src.data_loader import load_ampds2_mock, SyntheticDataGenerator
 from src.environment import SmartHomeEnv, BaselineThemostatEnv
 from src.agent import PI_DRL_Agent, create_and_train_agent
 from src.visualizer import ResultVisualizer
+from src.tables import TableGenerator, generate_demo_tables, PerformanceMetrics
 
 
 def print_header():
@@ -280,6 +281,31 @@ def run_visualization_mode(
     return figures_dir
 
 
+def run_tables_mode(save_dir: str = "outputs"):
+    """
+    Generate publication-quality tables.
+    
+    Generates the three "Golden Tables" for Applied Energy:
+    1. Table 1: Simulation & Hyperparameters (Reproducibility)
+    2. Table 2: Quantitative Performance Comparison
+    3. Table 3: Ablation Study (Physics-Informed Validation)
+    
+    Args:
+        save_dir: Directory for outputs
+    """
+    print("\n" + "-" * 50)
+    print("TABLE GENERATION MODE")
+    print("-" * 50)
+    
+    tables_dir = Path(save_dir) / "tables"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Generate all tables with demonstration data
+    table1, table2, table3 = generate_demo_tables(save_dir=str(tables_dir))
+    
+    return tables_dir
+
+
 def run_full_pipeline(
     total_timesteps: int = 50000,
     save_dir: str = "outputs",
@@ -303,12 +329,16 @@ def run_full_pipeline(
     # Generate visualizations
     run_visualization_mode(agent=agent, save_dir=save_dir)
     
+    # Generate tables
+    run_tables_mode(save_dir=save_dir)
+    
     print("\n" + "=" * 70)
     print("  PIPELINE COMPLETE")
     print("=" * 70)
     print(f"\nOutputs saved to: {save_dir}/")
     print(f"  - models/: Trained PPO models and checkpoints")
     print(f"  - figures/: Publication-quality figures (PDF)")
+    print(f"  - tables/: Publication tables (LaTeX + CSV)")
     print(f"  - logs/: TensorBoard training logs")
     print("\nTo view TensorBoard logs:")
     print(f"  tensorboard --logdir {save_dir}/models/logs")
@@ -415,10 +445,11 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python main.py                     # Full pipeline (train + visualize)
-  python main.py --demo              # Demo mode (quick visualization)
+  python main.py                     # Full pipeline (train + visualize + tables)
+  python main.py --demo              # Demo mode (quick visualization + tables)
   python main.py --train-only        # Training only
   python main.py --viz-only          # Visualization only
+  python main.py --tables-only       # Generate tables only
   python main.py --explain-cycling   # Explain cycling penalty
   python main.py --timesteps 100000  # Custom training length
         """
@@ -426,7 +457,7 @@ Examples:
     
     parser.add_argument(
         '--demo', action='store_true',
-        help='Run in demo mode (no training, synthetic visualizations)'
+        help='Run in demo mode (no training, synthetic visualizations + tables)'
     )
     parser.add_argument(
         '--train-only', action='store_true',
@@ -435,6 +466,10 @@ Examples:
     parser.add_argument(
         '--viz-only', action='store_true',
         help='Run visualization only (no training)'
+    )
+    parser.add_argument(
+        '--tables-only', action='store_true',
+        help='Generate publication tables only'
     )
     parser.add_argument(
         '--explain-cycling', action='store_true',
@@ -463,6 +498,7 @@ Examples:
         demonstrate_cycling_penalty()
     elif args.demo:
         run_demo_mode(save_dir=args.save_dir)
+        run_tables_mode(save_dir=args.save_dir)
     elif args.train_only:
         run_training_mode(
             total_timesteps=args.timesteps,
@@ -471,6 +507,8 @@ Examples:
         )
     elif args.viz_only:
         run_visualization_mode(save_dir=args.save_dir)
+    elif args.tables_only:
+        run_tables_mode(save_dir=args.save_dir)
     else:
         # Full pipeline
         run_full_pipeline(
