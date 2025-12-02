@@ -1,0 +1,27 @@
+# Physics-Informed Deep Reinforcement Learning for Building Energy Management
+# Requirements for Applied Energy Publication Implementation
+# =============================================================================
+
+# Core RL Framework
+gymnasium>=0.29.1
+stable-baselines3>=2.2.1
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization (Publication-Quality)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Model Explainability
+shap>=0.43.0
+
+# Additional Utilities
+scikit-learn>=1.3.0
+tqdm>=4.65.0
+tensorboard>=2.14.0
+rich>=13.0.0  # For progress bars
+
+# Optional: For enhanced performance
+torch>=2.0.0
